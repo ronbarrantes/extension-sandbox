@@ -1,8 +1,8 @@
 {
-  "name": "Hello extension",
-  "description": "Basic",
-  "version": "0.0.1",
   "manifest_version": 3,
+  "name": "Reading time",
+  "description": "Add the reading time to chrome extension documentation articles",
+  "version": "0.0.1",
   "action": {
     "default_popup": "hello.html",
     "default_icon": "favicon.png"
