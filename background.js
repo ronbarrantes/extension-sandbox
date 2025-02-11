@@ -9,7 +9,8 @@ const webstore = "https://developer.chrome.com/docs/webstore";
 
 chrome.action.onClicked.addListener(async (tab) => {
   if (tab.url.startsWith(extensions) || tab.url.startsWith(webstore)) {
-    const prevState = await chrome.action.getBadgeTest({ tabId: tab.id });
+    const prevState = await chrome.action.getBadgeText({ tabId: tab.id });
+    console.log("prevState --->>", prevState);
     const nextState = prevState === "ON" ? "OFF" : "ON";
 
     await chrome.action.setBadgeText({ tabId: tab.id, text: nextState });
