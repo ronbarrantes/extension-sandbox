@@ -14,5 +14,19 @@ chrome.action.onClicked.addListener(async (tab) => {
     const nextState = prevState === "ON" ? "OFF" : "ON";
 
     await chrome.action.setBadgeText({ tabId: tab.id, text: nextState });
+
+    if (nextState === "ON") {
+      // insert css
+      await chrome.scripting.insertCSS({
+        files: ["focus-mode.css"],
+        target: { tabId: tab.id },
+      });
+    } else if (nextState === "OFF") {
+      // remove css
+      await chrome.scripting.removeCSS({
+        files: ["focus-mode.css"],
+        target: { tabId: tab.id },
+      });
+    }
   }
 });
