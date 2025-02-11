@@ -8,6 +8,17 @@
     "32": "images/icon-32.png",
     "64": "images/icon-64.png"
   },
+
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://developer.chrome.com/docs/extensions/*",
+        "https://developer.chrome.com/docs/webstore/*"
+      ]
+    }
+  ],
+
   "action": {
     "default_icon": {
       "16": "images/icon-16.png",
@@ -15,9 +26,11 @@
       "64": "images/icon-64.png"
     }
   },
+
   "background": {
     "service_worker": "background.js"
   },
+
   "permissions": ["activeTab", "scripting"],
   "commands": {
     "_execute_action": {
